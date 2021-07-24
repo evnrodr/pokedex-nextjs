@@ -6,5 +6,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin-top: 2.5rem;
+  margin-top: 0.8rem;
+`;
+
+export const Navigation = styled.div`
+  display: flex;
+  gap: 0.2rem;
 `;

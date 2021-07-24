@@ -3,7 +3,7 @@ import { Container } from "./styles";
 import { Card } from "../Card";
 
 interface ICardProps {
-  pokemons: IPokemon[];
+  pokemons?: IPokemon[];
 }
 
 export function CardList({ pokemons }: ICardProps) {
