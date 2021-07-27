@@ -1,5 +1,7 @@
+// Styles
 import { Container, Logo } from "./styles";
 
+// Assets
 import PokedexIcon from "../../../public/pokedex.svg";
 
 export function Header() {

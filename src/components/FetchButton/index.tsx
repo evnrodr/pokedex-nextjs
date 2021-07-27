@@ -1,17 +1,17 @@
-import { Dispatch, SetStateAction } from "react";
+// Components
 import { GoPlus } from "react-icons/go";
+
+// Types
+import { IFetchButtonProps } from "../../utils/types/types";
+
+// Styles
 import { Container } from "./styles";
 
-interface IFetchButtonProps {
-  limit: number;
-  setLimit: Dispatch<SetStateAction<number>>;
-}
-
-export function FetchButton({ limit, setLimit }: IFetchButtonProps) {
+export function FetchButton({ offset, setOffset }: IFetchButtonProps) {
   return (
     <Container
       onClick={() => {
-        setLimit(limit + 10);
+        setOffset(offset + 20);
       }}
     >
       <GoPlus size={24} />

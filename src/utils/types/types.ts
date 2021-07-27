@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface IPokemonStats {
   base_stat: number;
   effort: number;
@@ -27,4 +29,20 @@ export interface IPokemon {
 export interface ReqData {
   name: string;
   url: string;
+}
+export interface ICardProps {
+  pokemon: IPokemon;
+}
+
+export interface ICardListProps {
+  pokemons?: IPokemon[];
+}
+
+export interface IFetchButtonProps {
+  offset: number;
+  setOffset: Dispatch<SetStateAction<number>>;
+}
+export interface ISearchBarProps {
+  listLength?: number;
+  setSearch: Dispatch<SetStateAction<string>>;
 }

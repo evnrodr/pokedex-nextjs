@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CardList } from "../components/CardList";
 import { FetchButton } from "../components/FetchButton";
 import { Header } from "../components/Header";
@@ -7,10 +7,10 @@ import { useFetch } from "../hooks/useFetch";
 import { Container, Navigation } from "./styles";
 
 export default function Home() {
-  const [limit, setLimit] = useState(10);
+  const [offset, setOffset] = useState(0);
   const [search, setSearch] = useState("");
 
-  const { pokemonList } = useFetch(`pokemon?offset=0&limit=${limit}`);
+  const { pokemonList } = useFetch(`pokemon?offset=${offset}&limit=20`);
 
   const filteredPokemons = pokemonList?.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(search.toLowerCase())
@@ -23,7 +23,7 @@ export default function Home() {
       <Header />
       <Navigation>
         <Search setSearch={setSearch} listLength={filteredPokemons?.length} />
-        <FetchButton limit={limit} setLimit={setLimit} />
+        <FetchButton offset={offset} setOffset={setOffset} />
       </Navigation>
       <CardList pokemons={filteredPokemons} />
     </Container>

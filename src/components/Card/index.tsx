@@ -1,9 +1,8 @@
-import { IPokemon } from "../../utils/types/types";
-import { Container, Image, Content, Badge } from "./styles";
+// Types
+import { ICardProps } from "../../utils/types/types";
 
-interface ICardProps {
-  pokemon: IPokemon;
-}
+// Styles
+import { Container, Image, Content, Badge } from "./styles";
 
 export function Card({ pokemon }: ICardProps) {
   return (

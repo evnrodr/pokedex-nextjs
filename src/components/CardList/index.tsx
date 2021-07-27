@@ -1,12 +1,13 @@
-import { IPokemon } from "../../utils/types/types";
-import { Container } from "./styles";
+// Components
 import { Card } from "../Card";
 
-interface ICardProps {
-  pokemons?: IPokemon[];
-}
+// Types
+import { ICardListProps } from "../../utils/types/types";
 
-export function CardList({ pokemons }: ICardProps) {
+// Styles
+import { Container } from "./styles";
+
+export function CardList({ pokemons }: ICardListProps) {
   return (
     <Container>
       {pokemons?.map((pokemon) => (

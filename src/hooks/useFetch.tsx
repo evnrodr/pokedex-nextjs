@@ -1,6 +1,13 @@
+// React - Next
 import { useState } from "react";
+
+// Contexts and Hooks
 import useSWR from "swr";
+
+// Services
 import { api } from "../services/api";
+
+// Types
 import { IPokemon, ReqData } from "../utils/types/types";
 
 export function useFetch<Data = any, Error = any>(url: string) {
@@ -14,13 +21,17 @@ export function useFetch<Data = any, Error = any>(url: string) {
   });
 
   async function loadPokemonData(data: ReqData[]) {
-    let _pokemonData = await Promise.all(
+    let _pokemonData = await Promise.all<IPokemon>(
       data.map(async (pokemon) => {
         let pokemonRecord = await api.get(pokemon.url);
         return pokemonRecord.data;
       })
     );
-    setPokemonList(_pokemonData);
+    if (!pokemonList) {
+      setPokemonList(_pokemonData);
+    } else {
+      setPokemonList(pokemonList?.concat(_pokemonData));
+    }
   }
 
   return { data, pokemonList, error };
